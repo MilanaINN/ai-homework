@@ -1,7 +1,7 @@
-// Store expenses in an array
+
 let expenses = [];
 
-// Function to add a new expense
+
 function addExpense() {
     const category = document.getElementById('category').value;
     const amount = parseFloat(document.getElementById('amount').value);
@@ -15,13 +15,13 @@ function addExpense() {
     }
 }
 
-// Function to clear input fields
+
 function clearInputs() {
     document.getElementById('category').value = '';
     document.getElementById('amount').value = '';
 }
 
-// Function to update the expense table
+
 function updateExpenseTable() {
     const expenseList = document.getElementById('expenseList');
     expenseList.innerHTML = '';
@@ -39,31 +39,27 @@ function updateExpenseTable() {
     });
 }
 
-// Function to delete an expense
+
 function deleteExpense(index) {
     expenses.splice(index, 1);
     updateExpenseTable();
 }
 
-// Function to calculate and display expense statistics
+
 function calculateExpenses() {
     if (expenses.length === 0) {
         alert('Please add some expenses first!');
         return;
     }
 
-    // Calculate total expenses
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    
-    // Calculate average daily expense (assuming 30 days per month)
+
     const averageDaily = total / 30;
-    
-    // Get top 3 expenses
+
     const top3 = [...expenses]
         .sort((a, b) => b.amount - a.amount)
         .slice(0, 3);
 
-    // Update the display
     document.getElementById('totalExpenses').textContent = `$${total.toLocaleString()}`;
     document.getElementById('averageExpense').textContent = `$${averageDaily.toLocaleString(undefined, {
         minimumFractionDigits: 2,
@@ -79,7 +75,6 @@ function calculateExpenses() {
     });
 }
 
-// Add sample data (optional, can be removed)
 function addSampleData() {
     expenses = [
         { category: 'Groceries', amount: 15000 },
@@ -92,5 +87,4 @@ function addSampleData() {
     updateExpenseTable();
 }
 
-// Load sample data when the page loads
 window.onload = addSampleData; 

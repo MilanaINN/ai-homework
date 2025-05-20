@@ -49,17 +49,17 @@ public class ProductApiTest {
         for (Product product : products) {
             List<String> defects = new ArrayList<>();
 
-            // Check title
+
             if (product.getTitle() == null || product.getTitle().trim().isEmpty()) {
                 defects.add("Empty or missing title");
             }
 
-            // Check price
+
             if (product.getPrice() == null || product.getPrice() < 0) {
                 defects.add("Missing or negative price");
             }
 
-            // Check rating
+
             if (product.getRating() == null || 
                 product.getRating().getRate() == null || 
                 product.getRating().getRate() > 5) {
@@ -75,7 +75,7 @@ public class ProductApiTest {
             }
         }
 
-        // Print defective products report
+
         if (!defectiveProducts.isEmpty()) {
             System.out.println("\nDefective Products Report:");
             for (DefectiveProduct product : defectiveProducts) {
